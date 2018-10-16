@@ -4,7 +4,7 @@ import './App.css';
 import { Chart } from "react-google-charts";
 
 
-const Pie = (props) => {
+const Pie = ({ lovers, haters }) => {
   const pieOptions = {
     title: "",
     pieHole: 0,
@@ -45,7 +45,7 @@ const Pie = (props) => {
   return(
     <Chart
       chartType="PieChart"
-      data={[["Age", "Weight"], ["Dog Lovers", props.lovers ], ["people who don't like dogs", props.haters]]}
+      data={[["Age", "Weight"], ["Dog Lovers", lovers ], ["people who don't like dogs", haters]]}
       options={pieOptions}
       graph_id="PieChart"
       width={"100%"}
@@ -60,7 +60,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Pie lovers={9} haters={2}/>
+        <Pie lovers={15} haters={2}/>
       </div>
     );
   }
